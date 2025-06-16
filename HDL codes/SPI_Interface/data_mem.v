@@ -17,6 +17,14 @@ module data_mem(
         memory[6] = 24'h123456;
         memory[7] = 24'h654321;
         memory[8] = 24'h999999;
+        memory[9] = 24'h000000;
+        memory[10] = 24'h000000;
+        memory[11] = 24'h000000;
+        memory[12] = 24'h000000;
+        memory[13] = 24'h000000;
+        memory[14] = 24'h000000;
+        memory[15] = 24'h000000;
+        
     end
 always @(posedge clk) 
 begin

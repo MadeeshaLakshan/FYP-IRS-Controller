@@ -46,7 +46,7 @@ module top_module(
     );
 
     spi_interface #(.CS_INACTIVE_CYCLES(CS_INACTIVE_CYCLES),.DELAY_VALUE(DELAY_VALUE)) spi_inst (
-        .clk(clk),
+//        .clk(clk),
         .rst_n(rst_n),
         .clk_div(clk_div),
         .data_in(mem_data),

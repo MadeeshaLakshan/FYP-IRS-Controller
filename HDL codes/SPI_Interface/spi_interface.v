@@ -102,7 +102,7 @@ endmodule*/
 module spi_interface #(
     parameter CS_INACTIVE_CYCLES = 5,DELAY_VALUE = 5 // Default cs_n inactive time (in clock cycles)
 )(
-    input  clk,
+    //input  clk,
     input  rst_n,
     input  clk_div,
     input [23:0] data_in,
@@ -140,6 +140,7 @@ begin
         spi_data <= 1'b1;
         cs_n <= 1'b1;  // Initialize cs_n to inactive state (high)
         cs_inactive_counter <= 0;
+        shiftReg <=0 ;
     end
     else
     begin
@@ -147,7 +148,7 @@ begin
             IDLE: begin
                 cs_n <= 1'b1;  // Ensure cs_n is inactive in IDLE
                 CE <= 0;
-                done_send <= 1'b1;
+                //done_send <= 1'b1;
                 
                 if(load_data) begin
                     shiftReg <= data_in;
@@ -155,7 +156,7 @@ begin
                     delay_counter <= 0;
                     state <= CS_INACTIVE;
                     done_send <= 1'b0; 
-                end
+                end else done_send           <= 1'b1;
             end
             
             CS_INACTIVE: begin
